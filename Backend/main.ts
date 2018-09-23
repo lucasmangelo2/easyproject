@@ -1,5 +1,5 @@
 import {Server} from './server/server'
-import { userRouter } from './users/users.router';
+import { userRouter } from './routes/user.router';
 
 const server = new Server();
 

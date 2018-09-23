@@ -3,5 +3,8 @@
     "target": "es2015",
     "module": "commonjs",
     "outDir": "dist"
-  }
+  },
+  "exclude": [
+    "**/node_modules/*"
+  ]
 }
