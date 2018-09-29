@@ -1,0 +1,43 @@
+
+<app-register class="side-content" [@registerAppeared]="registerState" (onRegister)="onRegisterSubmit($event)"></app-register>
+
+<div [@loginOnLeftSide]="loginPosition">
+  <h1 class="login-title">Easy Project</h1>
+  <div class="row">
+    <div class="col-md-5 col-login" [ngClass]="{'col-side-login':loginPosition == 'onside'}" >
+      <div class="jumbotron jumbotron-login">
+        <form [formGroup]="loginForm" >
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <input  formControlName="username" type="text" class="form-control" id="txtUsuario" placeholder="Digite o Usuário">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="password" formControlName="password" class="form-control" id="txtSenha" placeholder="Digite Senha" name="Senha">
+              </div>
+            </div>
+          </div>
+          <div class="row row-action">
+            <div class="col-md-12">
+              <button type="submit" [disabled]="!loginForm.valid" (click)="onSubmit()" class="btn btn-primary btn-login"> Login </button>
+            </div>
+          </div>
+          <div class="row" *ngIf="authError">
+            <div class="col-md-12">
+              <div class="alert alert-danger" role="alert">
+                Erro na autenticação
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 col-register">
+              Não possui uma conta? <a class="register-link" (click)="onRegisterClick()">Registrar-se</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+.jumbotron-login{
+    margin-top:70px;
+    padding-bottom: 20px !important;
+    padding-top: 40px !important;
+}
+
+.col-register{
+    text-align: right;
+    padding-top: 15px ;
+}
+
+.register-link{
+    color: #3273dc !important;
+}
+
+
+.row-action{
+    padding-top: 10px;
+}
+
+.login-title{
+    font-size: 7rem;
+    text-align: center;
+    padding-top: 4%;
+}
+
+.btn-login{
+    width: 100%;
+}
+
+.col-login{
+    margin: auto;
+}
+
+.side-content {
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #fafafa7a; 
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding: 30px;
+    padding-top: 60px; /* Place content 60px from the top */
+    border-left: 1px solid #ececec;
+}
+
+.col-side-login{
+    transition: 0.8s;
+    max-width: 80% !important;
+    flex: 0 0 80% !important
+}

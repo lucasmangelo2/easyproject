@@ -10,6 +10,14 @@ import { AboutComponent } from './about/about.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ViewComponent } from './view/view.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { UserService } from "./user/user.service";
+import { CardComponent } from "./task/card/card.component";
+import { CheckboxComponent } from "./task/checkbox/checkbox.component";
+
+import { LoginComponent } from "./user/login/login.component";
+import { ProfileComponent } from "./user/profile/profile.component";
+import { RegisterComponent } from "./user/register/register.component";
+import { SharedModule } from "../shared/shared.module";
 
 
 @NgModule({
@@ -24,12 +32,19 @@ import { NotFoundComponent } from './not-found/not-found.component';
   AboutComponent,
   DashboardComponent,
   ViewComponent,
-  NotFoundComponent
+  NotFoundComponent,
+  CardComponent,
+  CheckboxComponent,
+  LoginComponent,
+  ProfileComponent,
+  RegisterComponent
   ],
   imports: [
-    
+    SharedModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    UserService
+  ],
   bootstrap: []
 })
 export class EasyProjectModule { }

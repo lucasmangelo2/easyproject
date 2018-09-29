@@ -1,0 +1,57 @@
+<h2 class="register-title" >Criação de Conta</h2>
+
+<form [formGroup]="registerForm">
+    <!-- <div class="row">
+        <div class="col-md-12">
+            <input-container label="E-mail" errorMessage="E-mail inválido">
+                <input type="email"  class="form-control" formControlName="email" placeholder="Digite seu e-mail">
+            </input-container>
+        </div>
+    </div> -->
+    <div class="row">
+        <div class="col-md-6">
+            <input-container label="Nome" errorMessage="Este campo é obrigatório">
+                <input type="text" class="form-control" formControlName="name" placeholder="Digite seu primeiro Nome" >
+            </input-container>
+        </div>
+        <div class="col-md-6">
+            <input-container label="Sobrenome" errorMessage="Este campo é obrigatório">
+                <input type="text" class="form-control" formControlName="lastname" placeholder="Digite seu sobrenome" >
+            </input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <input-container label="Usuário" errorMessage="Este campo é obrigatório">
+                <input type="text" class="form-control" formControlName="username" placeholder="Digite um nome de usuário" >
+            </input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <input-container label="Senha" errorMessage="Senha no mínimo 6 caracteres">
+                <div class="input-group mb-3">
+                    <input [type]="isShowing ? 'text' : 'password'" class="form-control password" formControlName="password" placeholder="Digite uma Senha">
+                    <div class="input-group-append" (click)="showClick()">
+                        <button class="btn-password"><i class="fa fa-eye"></i></button>
+                    </div>
+                </div>
+            </input-container>
+        </div>
+        <div class="col-md-6">
+            <input-container label="Confirmação de Senha" errorMessage="As senhas não são iguais">
+                <div class="input-group mb-3">
+                    <input [type]="isConfirmShowing ? 'text' : 'password'" class="form-control password" formControlName="confirm_password" placeholder="Repita a Senha">
+                    <div class="input-group-append" (click)="showConfirmClick()">
+                        <button class="btn-password"><i class="fa fa-eye"></i></button>
+                    </div>
+                </div>
+            </input-container>
+        </div>
+    </div>
+    <div class="row row-submit">
+        <div class="col-md-4">
+            <button class="btn btn-primary" [disabled]="!registerForm.valid" (click)="onRegisterClick()" >Registrar</button>
+        </div>
+    </div>
+</form>
