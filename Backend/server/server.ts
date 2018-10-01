@@ -5,6 +5,8 @@ import { rejects } from 'assert';
 import { resolve } from 'url';
 import { enviroment } from '../common/enviroment';
 import { Router } from '../common/router';
+import { mergePatchBodyParser } from './merge-patch.parser';
+import { handlerError } from './error.handler';
 
 export class Server {
 
@@ -31,6 +33,12 @@ export class Server {
                 // configuração para visualização da query utilizada na requisição
                 this.application.use(restify.plugins.queryParser());
 
+                // conversão da body em objeto json
+                this.application.use(restify.plugins.bodyParser());
+
+                // merge customizado para requisições patch, com content-type: 'merge-patch+json'
+                this.application.use(mergePatchBodyParser);
+
                 // routes
 
                 for(let router of routers){
@@ -40,6 +48,8 @@ export class Server {
                 this.application.listen(enviroment.server.port, ()=>{
                     resolve(this.application);
                 });
+
+                this.application.on('restifyError',handlerError)
             }
             catch(error){
                 reject(error)
