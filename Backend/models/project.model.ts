@@ -1,10 +1,10 @@
 import * as mongoose from 'mongoose'
 
-const memberSchema = new mongoose.Schema({
+const projectSchema = new mongoose.Schema({
     name:{
         type: String
     },
-    occupation_id:{
+    description:{
         type: String
     },
     creation_date:{
@@ -16,9 +16,9 @@ const memberSchema = new mongoose.Schema({
     teams: [{
         type:String
     }],
-    taks:[{
+    members:[{
         type:String
     }]
 });
 
-export const Member = mongoose.model('Member', memberSchema);
+export const Project = mongoose.model('Project', projectSchema);

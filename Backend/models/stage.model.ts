@@ -2,6 +2,7 @@ import * as mongoose from 'mongoose'
 
 const stageSchema = new mongoose.Schema({
     title:{
+        required:true,
         type: String
     },
     description:{
@@ -15,6 +16,17 @@ const stageSchema = new mongoose.Schema({
     },
     status: {
         type: String
+    },
+    sprint:[{
+        id: String,
+        status:String,
+        allocation_date : Date
+    }],
+    priority_level:{
+        type:Number
+    },
+    automatically_concludes_task:{
+        type: Boolean
     }
 });
 

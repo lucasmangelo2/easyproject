@@ -39,7 +39,11 @@ const userSchema = new mongoose.Schema({
             validator: validateCPF,
             message: '{PATH}: invalid CPF ({VALUE})' // PATH - atributo em questão, VALUE - valor atribuído
         }
-    }
+    },
+    attachment: [{
+        content: String,
+        creation_date: Date
+    }]
 });
 
 const hashPasword = function(obj, next){

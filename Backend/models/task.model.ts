@@ -7,6 +7,9 @@ const taskSchema = new mongoose.Schema({
     description:{
         type: String
     },
+    status:{
+        type:String
+    },
     creation_date:{
         type: Date
     },
@@ -25,7 +28,33 @@ const taskSchema = new mongoose.Schema({
     attachment: [{
         content: String,
         creation_date: Date
+    }],
+    stage:[{
+        id:String,
+        status: String
+    }],
+    Sprint:[{
+        id:String,
+        status: String,
+        allocation_date : Date
+    }],
+    project: [{
+        id:String,
+        status: String,
+        allocation_date : Date
+    }],
+    priority_level: {
+        type: Number
+    },
+    complexity_level:{
+        type:String
+    },
+    member_allocation: [{
+        member_id:String,
+        status: String,
+        allocation_date : Date
     }]
+
 });
 
 export const Task = mongoose.model('Task', taskSchema);
