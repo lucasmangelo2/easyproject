@@ -1,0 +1,34 @@
+.stage{
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 30px;
+    width: 300px;
+
+    .header{
+        margin-bottom: 20px;
+        padding: 08px;
+        border: 1px solid rgba(0, 0, 0, 0.125);
+        border-radius: 0.25rem;
+        background-color: #fff;
+
+        .stage-title{
+            font-size: 16px;
+            font-weight: 600;
+
+            .add{
+                float: right;
+                cursor: pointer;
+                padding-right: 5px;
+            }
+        }
+    }
+
+    .content{
+        min-width: 100px;
+        min-height: 100px;
+        overflow: auto;
+        height: 85vh;
+        display: flex;
+        flex-direction: column;
+    }
+}

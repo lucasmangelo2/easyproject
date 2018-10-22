@@ -17,8 +17,6 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     EasyProjectModule,
-    HttpModule,
-    DragulaModule.forRoot(),
     // PreloadAllModules pre carrega os módulos lazy no início da aplicação, isso agiliza o acesso a módulos grandes, proporcionando fluídez na navegação
     RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules}), 
   ],

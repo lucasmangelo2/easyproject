@@ -1,0 +1,30 @@
+<div class="side-menu" >
+    <div class="side-center items" (mouseover)="onMouseOver()">
+      <div class="first-item">
+            <a [routerLink]='["/"]' ><i class="fa fa-home"></i></a>
+      </div>
+      <div>
+          <a [routerLink]='["/task"]' ><i class="fa fa-users item-group"></i></a>
+      </div>
+      <div >
+        <a [routerLink]='["/profile"]' ><i class="fa fa-user"></i></a>
+      </div>
+      <div class="last-item">
+          <a [routerLink]="['/login']" ><i class="fa fa-power-off"></i></a>
+      </div>
+    </div>
+    <!-- <div class="side-title">
+        <div class="item-title">
+            <span>Home</span>
+        </div>
+        <div class="item-title">
+            <span>Time</span>
+        </div>
+        <div class="item-title">
+            <span>Perfil</span>
+        </div>
+        <div class="item-title">
+            <span>Sair</span>
+        </div>
+      </div> -->
+</div>

@@ -1,0 +1,48 @@
+.card {
+    flex: 1 1 auto;
+    min-height: 0;
+    min-width: 0;
+    display: flex;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 15px;
+    margin-bottom: 25px;
+
+    .title{
+        flex: 0 0 auto;
+        min-height: 0;
+        min-width: 0;
+        font-size: 15px;
+        font-weight: 400;
+        margin-top: -5px;
+        overflow: hidden;
+    }
+
+    .description{
+        word-wrap: normal;
+        max-height: 90px;
+        color: #666;
+        /* text-overflow: ellipsis; */
+        white-space: nowrap;
+        overflow: hidden;
+        white-space: pre-line;
+        font-size: 13px;
+        font-weight: 400;
+    }
+
+    .options{ 
+        float: right;
+        cursor: pointer;
+    }
+
+    .assign{
+        height: 25px;
+        border-top-style: outset;
+        margin-top: 10px;
+    }
+}

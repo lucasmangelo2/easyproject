@@ -5,7 +5,6 @@ import { HomeComponent } from './home/home.component';
 import { CompanyComponent } from './company/company.component';
 import { SprintComponent } from './sprint/sprint.component';
 import { TaskComponent } from './task/task.component';
-import { StageComponent } from './stage/stage.component';
 import { AboutComponent } from './about/about.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ViewComponent } from './view/view.component';
@@ -18,7 +17,10 @@ import { LoginComponent } from "./user/login/login.component";
 import { ProfileComponent } from "./user/profile/profile.component";
 import { RegisterComponent } from "./user/register/register.component";
 import { SharedModule } from "../shared/shared.module";
-
+import { StageComponent } from "./task/stage/stage.component";
+import { SidebarMenuComponent } from "./sidebar-menu/sidebar-menu.component";
+import { StageAddComponent } from './task/stage/stage-add/stage-add.component';
+import { CardDetailComponent } from './task/card-detail/card-detail.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,6 @@ import { SharedModule } from "../shared/shared.module";
   CompanyComponent,
   SprintComponent,
   TaskComponent,
-  StageComponent,
   AboutComponent,
   DashboardComponent,
   ViewComponent,
@@ -37,7 +38,11 @@ import { SharedModule } from "../shared/shared.module";
   CheckboxComponent,
   LoginComponent,
   ProfileComponent,
-  RegisterComponent
+  RegisterComponent,
+  StageComponent,
+  SidebarMenuComponent,
+  StageAddComponent,
+  CardDetailComponent
   ],
   imports: [
     SharedModule.forRoot()

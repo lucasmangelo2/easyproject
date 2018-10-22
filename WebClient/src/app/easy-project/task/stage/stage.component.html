@@ -1,0 +1,15 @@
+<div class="stage">
+  <div class="header" >
+    <div class="stage-title" >
+      {{stage.title}}
+      <span class="add" (click)="onAddNewTask($event)">
+          <i class="fa fa-plus"></i>
+      </span>
+    </div>
+  </div>
+
+  <div class="content" [dragula]="'cards'">
+      <app-card *ngFor="let item of stage?.cards" [card]="item"></app-card>
+  </div>
+</div>
+
