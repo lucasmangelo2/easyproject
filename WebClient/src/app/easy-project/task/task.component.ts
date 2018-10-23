@@ -1,6 +1,6 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { DragulaService } from 'ng2-dragula';
-import { Stage } from './task.model';
+import { Stage } from '../model/task.model';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { TaskService } from './task.service';
 

@@ -1,9 +1,31 @@
 import {Server} from './server/server'
 import { userRouter } from './routes/user.router';
 
+import { Router } from './common/router';
+
+import { teamRouter } from './routes/team.router';
+import { taksRouter } from './routes/taks.router';
+import { stageRouter } from './routes/stage.router';
+import { sprintRouter } from './routes/sprint.router';
+import { projectRouter } from './routes/project.model';
+import { memberRouter } from './routes/member.router';
+import { companyRouter } from './routes/company.router';
+
+
 const server = new Server();
 
-server.bootstrap([userRouter])
+const routers : Router[] = [
+    userRouter,
+    teamRouter,
+    taksRouter,
+    stageRouter,
+    sprintRouter,
+    projectRouter,
+    memberRouter,
+    companyRouter
+]
+
+server.bootstrap(routers)
       .then(server => {
           console.log(`Server is listening on: `, server.application.address());
       })

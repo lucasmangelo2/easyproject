@@ -43,7 +43,11 @@ const userSchema = new mongoose.Schema({
     attachment: [{
         content: String,
         creation_date: Date
-    }]
+    }],
+    creation_date:{
+        default: new Date(),
+        type: Date
+    }
 });
 
 const hashPasword = function(obj, next){

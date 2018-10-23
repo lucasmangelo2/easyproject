@@ -2,47 +2,90 @@ import * as mongoose from 'mongoose'
 
 const taskSchema = new mongoose.Schema({
     title:{
+        required:true,
+        maxlength:25,
         type: String
     },
     description:{
         type: String
     },
     status:{
+        default:"A",
+        type:String
+    },
+    creation_user_id: {
         type:String
     },
     creation_date:{
+        default: new Date(),
         type: Date
     },
     start_date:{
+        default: new Date(),
         type: Date
     },
     end_date: {
         type: Date
     },
     checklist: [{
-        description: String,
-        creation_date: Date,
-        complete_date: Date,
-        complete: Boolean
+        description: {
+            type:String
+        },
+        creation_date:{
+            type:Date,
+            default:new Date()
+        },
+        complete_date:{
+            type:Date
+        },
+        complete:{
+            type: Boolean
+        }
     }],
     attachment: [{
-        content: String,
-        creation_date: Date
+        content: {
+            required:true,
+            type:String
+        },
+        creation_date: {
+            default: new Date(),
+            type:Date
+        }
     }],
     stage:[{
-        id:String,
-        status: String
+        _id: {
+            required:true,
+            type:String
+        },
+        status:{
+            type:String,
+            default:"A"
+        }
     }],
-    Sprint:[{
-        id:String,
-        status: String,
-        allocation_date : Date
+    sprint:[{
+        _id: {
+            required:true,
+            type:String
+        },
+        status:{
+            type:String,
+            default:"A"
+        },
+        allocation_date :{
+            default: Date(),
+            type: Date
+        }
     }],
-    project: [{
-        id:String,
-        status: String,
-        allocation_date : Date
-    }],
+    project: {
+        _id: {
+            required:true,
+            type:String
+        },
+        allocation_date :{
+            default: Date(),
+            type: Date
+        }
+    },
     priority_level: {
         type: Number
     },
@@ -50,9 +93,18 @@ const taskSchema = new mongoose.Schema({
         type:String
     },
     member_allocation: [{
-        member_id:String,
-        status: String,
-        allocation_date : Date
+        _id: {
+            required:true,
+            type:String
+        },
+        status:{
+            type:String,
+            default:"A"
+        },
+        allocation_date :{
+            default: Date(),
+            type: Date
+        }
     }]
 
 });

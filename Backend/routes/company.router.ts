@@ -1,56 +1,47 @@
 import {Router} from '../common/router';
 import * as restify from 'restify';
-import { User } from '../models/user.model';
-
 
 import {NotFoundError} from 'restify-errors';
+import { Company } from '../models/company.model';
 
-class UsersRouter extends Router {
+class CompanyRouter extends Router {
 
     constructor(){
         super();
-
-        // listener do evento beforeRender, é preciso se declarado no constrututor
-        this.on('beforeRender', document => {
-            document.password = undefined
-            // alternativa - delete document.password
-        });
     }
 
-
     applyRoutes(application: restify.Server) {
-        application.get('/users', (req, resp, next) =>{
-            User.find()
+        application.get('/company', (req, resp, next) =>{
+            Company.find()
                 .then(this.render(resp,next))
                 .catch(next);
         });
 
-        application.get('/users/:id', (req, resp, next) => {
+        application.get('/company/:id', (req, resp, next) => {
             let id : string = req.params.id;
-            User.findById(id)
+            Company.findById(id)
                 .then(this.render(resp,next))
                 .catch(next);
         });
 
-        application.post('/users',(req, resp,next) => {
-            let user = new User(req.body);
+        application.post('/company',(req, resp,next) => {
+            let taks = new Company(req.body);
 
-            user.save()
+            taks.save()
                 .then(this.render(resp,next))
                 .catch(next);;
         });
 
-        application.patch('/users/:id', (req,resp,next) =>{
+        application.patch('/company/:id', (req,resp,next) =>{
             // retorna o objeto alterado
             const options = {new:true, runValidators: true};
-            User.findByIdAndUpdate(req.params.id, req.body, options)
+            Company.findByIdAndUpdate(req.params.id, req.body, options)
                 .then(this.render(resp,next))
                 .catch(next);
         });
 
-        application.del('/users/:id', (req,resp,next) =>{
-            //seria possível utilizar o método 'User.findByIdAndUpdate', porém, não será necessário enviar o obejto removido
-            User.remove({_id: req.params.id})
+        application.del('/company/:id', (req,resp,next) =>{
+            Company.remove({_id: req.params.id})
                 .exec()
                 .then((cmdResult : any) => {
                     if(cmdResult.result.n){
@@ -66,4 +57,4 @@ class UsersRouter extends Router {
     }
 }
 
-export const userRouter = new UsersRouter();
+export const companyRouter = new CompanyRouter();

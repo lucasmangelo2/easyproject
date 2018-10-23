@@ -1,16 +1,18 @@
 import * as mongoose from 'mongoose'
 
-const temaSchema = new mongoose.Schema({
-    title:{
+const teamSchema = new mongoose.Schema({
+    name:{
         type: String
     },
     description:{
         type: String
     },
     creation_date:{
+        default:new Date(),
         type: Date
     },
     status: {
+        default:"A",
         type: String
     },
     members: [{
@@ -21,4 +23,4 @@ const temaSchema = new mongoose.Schema({
     }]
 });
 
-export const Team = mongoose.model('Team', temaSchema);
+export const Team = mongoose.model('Team', teamSchema);
