@@ -24,6 +24,13 @@ class TaksRouter extends Router {
                 .catch(next);
         });
 
+        application.get('/taskbystage/:stage_id', (req, resp, next) => {
+            let id : string = req.params.stage_id;
+            Task.find({stage: {$elemMatch: {_id:id}}})
+                .then(this.render(resp,next))
+                .catch(next);
+        });
+
         application.post('/task',(req, resp,next) => {
             let taks = new Task(req.body);
 

@@ -1,5 +1,6 @@
 import * as restify from 'restify';
 import * as mongoose from 'mongoose';
+import * as corsMiddleware from 'restify-cors-middleware';
 
 import { rejects } from 'assert';
 import { resolve } from 'url';
@@ -7,6 +8,7 @@ import { enviroment } from '../common/enviroment';
 import { Router } from '../common/router';
 import { mergePatchBodyParser } from './merge-patch.parser';
 import { handlerError } from './error.handler';
+
 
 export class Server {
 
@@ -30,6 +32,19 @@ export class Server {
                     version: '1.0.0'
                 });
 
+                const corsOptions : corsMiddleware.Options = {
+                    //preflightMaxAge:10,
+                    origins: ['*'],
+                    //allowHeaders: ['*']
+                    //exposeHeaders:['']
+                }
+
+                const cors : corsMiddleware.CorsMiddleware = corsMiddleware(corsOptions);
+
+                this.application.pre(cors.preflight)
+
+                this.application.use(cors.actual)
+
                 // configuração para visualização da query utilizada na requisição
                 this.application.use(restify.plugins.queryParser());
 
@@ -37,7 +52,7 @@ export class Server {
                 this.application.use(restify.plugins.bodyParser());
 
                 // merge customizado para requisições patch, com content-type: 'merge-patch+json'
-                this.application.use(mergePatchBodyParser);
+                this.application.use(mergePatchBodyParser); 
 
                 // routes
 

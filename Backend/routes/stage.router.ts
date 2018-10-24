@@ -13,6 +13,7 @@ class StageRouter extends Router {
     applyRoutes(application: restify.Server) {
         application.get('/stage', (req, resp, next) =>{
             Stage.find()
+                .sort({order : 1})
                 .then(this.render(resp,next))
                 .catch(next);
         });

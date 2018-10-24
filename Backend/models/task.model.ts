@@ -60,6 +60,10 @@ const taskSchema = new mongoose.Schema({
         status:{
             type:String,
             default:"A"
+        },
+        allocation_date :{
+            default: Date(),
+            type: Date
         }
     }],
     sprint:[{
@@ -80,6 +84,10 @@ const taskSchema = new mongoose.Schema({
         _id: {
             required:true,
             type:String
+        },
+        status:{
+            type:String,
+            default:"A"
         },
         allocation_date :{
             default: Date(),
