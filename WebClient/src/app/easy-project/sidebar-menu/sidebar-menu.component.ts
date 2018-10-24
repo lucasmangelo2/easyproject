@@ -13,7 +13,7 @@ export class SidebarMenuComponent implements OnInit {
   }
 
   onMouseOver(){
-    console.log("mouse over");
+    //console.log("mouse over");
   }
 
 }

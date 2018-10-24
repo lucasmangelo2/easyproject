@@ -7,8 +7,10 @@
     <span class="board-title">{{title}}</span>
 </div>
 
-<div class="board" dragula="stage">  
-    <app-stage *ngFor="let item of stages" [stage]="item"></app-stage>
+<div class="board">
+    <span dragula="stage" [(dragulaModel)]="stages">
+        <app-stage *ngFor="let item of stages" [stage]="item"></app-stage>
+    </span>
     <app-stage-add></app-stage-add>
 </div>
 
@@ -20,6 +22,6 @@
     </button>
     </div>
     <div class="modal-body">
-        <app-card-detail></app-card-detail>
+        <app-task-detail></app-task-detail>
     </div>
 </ng-template>

@@ -8,8 +8,8 @@
     </div>
   </div>
 
-  <div class="content" [dragula]="'cards'">
-      <app-card *ngFor="let item of stage?.cards" [card]="item"></app-card>
+  <div class="content" [dragula]="'task'" [(dragulaModel)]="tasks">
+      <app-task *ngFor="let item of tasks"  [task]="item"></app-task>
   </div>
 </div>
 

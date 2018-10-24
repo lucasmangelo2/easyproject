@@ -11,13 +11,16 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { UserService } from "../easy-project/user/user.service";
 import { DragulaModule } from "ng2-dragula";
 import { RouterModule } from "@angular/router";
-import { TaskService } from "../easy-project/task/task.service";
+import { TaskService } from "../easy-project/services/task.service";
+import { CheckboxComponent } from "./checkbox/checkbox.component";
+import { StageService } from "../easy-project/services/stage.service";
 
 
 @NgModule({
     declarations:[
         InputComponent,
-        SnackbarComponent
+        SnackbarComponent,
+        CheckboxComponent
     ],
     imports: [
         CommonModule,
@@ -53,7 +56,8 @@ export class SharedModule{
             ngModule: SharedModule,
             providers:[
                 UserService,
-                TaskService
+                TaskService,
+                StageService
                 /*{provide: HTTP_INTERCEPTORS, //useClass: AuthInterceptor,
                      multi: true}*/
             ]

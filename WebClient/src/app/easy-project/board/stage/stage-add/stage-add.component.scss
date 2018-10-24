@@ -3,6 +3,12 @@
     margin-right: 15px;
     margin-top: 30px;
     padding-top: 9px;
+    
+    width: 300px;
+    padding: 08px;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    background-color: #fff;
 
     .add{
         cursor: pointer;
@@ -10,5 +16,9 @@
 
     span{
         margin-left: 15px;
-    }
+    }    
+}
+
+.content{
+    height: 85vh;
 }

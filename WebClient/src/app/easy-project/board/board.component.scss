@@ -38,6 +38,10 @@
     overflow-y: hidden;
     height: 100%;
     background: tomato;
+
+    span{
+        display: flex;
+    }
 }
 
 

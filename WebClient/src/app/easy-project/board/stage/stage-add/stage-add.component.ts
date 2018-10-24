@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TaskService } from '../../../services/task.service';
 
 @Component({
   selector: 'app-stage-add',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StageAddComponent implements OnInit {
 
-  constructor() { }
+  constructor(private taskService: TaskService) { }
 
   ngOnInit() {
   }
 
+  onNewTask(e){
+    this.taskService.newTask.emit();
+  }
 }
