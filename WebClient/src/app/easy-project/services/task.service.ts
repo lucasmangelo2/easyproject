@@ -26,20 +26,25 @@ export class TaskService {
         })
     }
 
-    getTaskByStage(id) : Observable<any> {
+    getTaskByStage(id) : Observable<Task[]> {
         let params : HttpParams = new HttpParams();
         
         return this.http
-            .get(environment.api_url + "/taskbystage/" + id)
+            .get<Task[]>(environment.api_url + "/taskbystage/" + id)
     }
 
-    postTask(obj : Task) : Observable<any>{
+    postTask(obj : Task) : Observable<Task>{
         return this.http
-                    .post(environment.api_url + "/task/", obj)
+                    .post<Task>(environment.api_url + "/task/", obj)
     }
 
-    putTask(obj : Task) : Observable<any>{
+    putTask(obj : Task) : Observable<Task>{
         return this.http
-                   .put(environment.api_url + "/task/", obj)
+                   .patch<Task>(environment.api_url + "/task/" + obj._id, obj)
+    }
+
+    deleteTask(id: String): Observable<any>{
+        return this.http
+                    .delete(environment.api_url + "/task/" + id)
     }
 }

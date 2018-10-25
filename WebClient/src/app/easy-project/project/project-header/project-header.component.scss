@@ -1,0 +1,27 @@
+
+.project-header{
+    margin-left: 15px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 0 9px;
+    display: flex;
+    line-height: 30px;
+
+    #container {
+        width: 30px;
+        height: 30px;
+        border-radius: 100px;
+        background: #333;
+    
+        .project-img{
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-size: 15px;
+        }
+    }
+
+    .title{
+        margin-left: 10px;
+    }
+}

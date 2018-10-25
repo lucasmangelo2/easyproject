@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {trigger, state, style, transition, animate} from '@angular/animations';
 import { SystemUser } from '../user.model';
-import { UserService } from '../user.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-login',

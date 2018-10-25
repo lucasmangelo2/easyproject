@@ -1,13 +1,10 @@
 import { Injectable, EventEmitter } from "@angular/core";
-import { SystemUser, userDTO } from "./user.model";
+import { SystemUser, userDTO } from "../user/user.model";
 import { ReplaySubject } from "rxjs";
 import { HttpClient, HttpHeaders} from '@angular/common/http'
 import { Router } from "@angular/router";
 import { NotificationService } from "../../shared/messages/notification.services";
 
-
-
-@Injectable()
 @Injectable()
 export class UserService {
 

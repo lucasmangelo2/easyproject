@@ -2,7 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { validateConfig } from '@angular/router/src/config';
 import { SystemUser, userDTO } from '../user.model';
-import { UserService } from '../user.service';
+import { UserService } from '../../services/user.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',

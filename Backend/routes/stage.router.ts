@@ -25,6 +25,13 @@ class StageRouter extends Router {
                 .catch(next);
         });
 
+        application.get('/stagebysprint/:sprint_id', (req, resp, next) => {
+            let id : string = req.params.sprint_id;
+            Stage.find({sprint: {$elemMatch: {_id:id}}})
+                .then(this.render(resp,next))
+                .catch(next);
+        });
+
         application.post('/stage',(req, resp,next) => {
             let taks = new Stage(req.body);
 

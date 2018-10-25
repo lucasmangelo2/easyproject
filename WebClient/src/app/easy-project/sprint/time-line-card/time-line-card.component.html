@@ -1,0 +1,9 @@
+<div class="timeline-container" [ngClass]="direction">
+  <div class="content" >
+    <div class="header">
+        <span class="title">{{sprint?.title}}</span>
+        <span class="date-interval" *ngIf="sprint?.start_date">{{sprint?.start_date | date:'dd/MM/yyyy'}} - {{sprint?.end_date | date:'dd/MM/yyyy'}}</span>
+    </div>
+    <a [routerLink]="['/board',sprint?._id]" (click)="onClick($event)">{{sprint?.description}}</a>
+  </div>
+</div>

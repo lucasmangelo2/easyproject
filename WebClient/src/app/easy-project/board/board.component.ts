@@ -6,6 +6,7 @@ import { Stage } from '../models/stage.model';
 import { StageService } from '../services/stage.service';
 import { Subscription } from 'rxjs';
 import { Project } from '../models/project.model';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -25,14 +26,14 @@ export class BoardComponent implements OnInit, OnDestroy {
   modalRef: BsModalRef;
 
   config = {
-    
     animated: true
   };
 
   constructor(private dragulaService: DragulaService,
               private modalService: BsModalService,
               private stageService: StageService,
-              private taskService : TaskService) { 
+              private taskService : TaskService,
+              private route : ActivatedRoute) { 
 
     let group = dragulaService.find("task");
 
@@ -62,8 +63,6 @@ export class BoardComponent implements OnInit, OnDestroy {
       let atual = r.item;
       let diferenca = atual.order - r.targetIndex;
 
-      console.log(diferenca);
-
       let anterior = this.stages.find((value) =>{
         return value.order == r.targetIndex;
       });
@@ -73,7 +72,7 @@ export class BoardComponent implements OnInit, OnDestroy {
       this.onNewTaks(this.template);
     });
 
-    this.stageService.getStage()
+    this.stageService.getStageBySprint(this.route.snapshot.params['id'])
     .subscribe((r) => {
       this.stages = r;
     })

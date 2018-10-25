@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 
 import {DragulaModule} from 'ng2-dragula';
@@ -10,6 +10,7 @@ import { ROUTES } from './app.routes';
 import { NotificationService } from './shared/messages/notification.services';
 import { HttpModule } from '@angular/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ApplicationErrorHandler } from './app.error-handler';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules}), 
   ],
   providers: [
-    NotificationService
+    {provide: ErrorHandler, useClass: ApplicationErrorHandler}
   ],
   bootstrap: [AppComponent]
 })

@@ -1,3 +1,9 @@
-<p>
-  sprint works!
-</p>
+<app-sidebar-menu></app-sidebar-menu>
+
+<app-project-header></app-project-header>
+
+<div class="sprint">
+  <div class="timeline">
+    <app-time-line-card *ngFor="let item of list" [sprint]="item" [direction]="getItemDrection(item)" ></app-time-line-card>
+  </div>
+</div>

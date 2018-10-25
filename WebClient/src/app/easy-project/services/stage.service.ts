@@ -21,14 +21,15 @@ export class StageService {
             .get(environment.api_url + "/stage/")
     }
 
-    patchStage(obj : Stage) : Observable<any>{
+    getStageBySprint(id : string ) : Observable<any> {
         return this.http
-            .patch(environment.api_url + "/stage/" + obj._id, obj, {headers: this.getHeader()})
+            .get(environment.api_url + "/stagebysprint/" + id)
     }
 
-    private getHeader(): HttpHeaders{
-        let header = new HttpHeaders();
-        header.append('Content-type', 'application/json');
-        return header;
+    patchStage(obj : Stage) : Observable<any>{
+        return this.http
+            .patch(environment.api_url + "/stage/" + obj._id, obj)
     }
+
+    
 }

@@ -8,12 +8,15 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { InputComponent } from "./input/input.component";
 import { SnackbarComponent } from './messages/snackbar/snackbar.component';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { UserService } from "../easy-project/user/user.service";
+import { UserService } from "../easy-project/services/user.service";
 import { DragulaModule } from "ng2-dragula";
 import { RouterModule } from "@angular/router";
 import { TaskService } from "../easy-project/services/task.service";
 import { CheckboxComponent } from "./checkbox/checkbox.component";
 import { StageService } from "../easy-project/services/stage.service";
+import { NotificationService } from "./messages/notification.services";
+import { SprintService } from "../easy-project/services/sprint.service";
+
 
 
 @NgModule({
@@ -57,7 +60,9 @@ export class SharedModule{
             providers:[
                 UserService,
                 TaskService,
-                StageService
+                StageService,
+                SprintService,
+                NotificationService
                 /*{provide: HTTP_INTERCEPTORS, //useClass: AuthInterceptor,
                      multi: true}*/
             ]

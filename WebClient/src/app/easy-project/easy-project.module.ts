@@ -8,7 +8,7 @@ import { AboutComponent } from './about/about.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ViewComponent } from './view/view.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { UserService } from "./user/user.service";
+import { UserService } from "./services/user.service";
 
 import { LoginComponent } from "./user/login/login.component";
 import { ProfileComponent } from "./user/profile/profile.component";
@@ -20,6 +20,9 @@ import { BoardComponent } from "./board/board.component";
 import { StageComponent } from "./board/stage/stage.component";
 import { StageAddComponent } from "./board/stage/stage-add/stage-add.component";
 import { TaskDetailComponent } from "./board/task/taks-detail/task-detail.component";
+import { ProjectComponent } from './project/project.component';
+import { ProjectHeaderComponent } from './project/project-header/project-header.component';
+import { TimeLineCardComponent } from "./sprint/time-line-card/time-line-card.component";
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import { TaskDetailComponent } from "./board/task/taks-detail/task-detail.compon
   StageComponent,
   SidebarMenuComponent,
   StageAddComponent,
-  TaskDetailComponent
+  TaskDetailComponent,
+  ProjectComponent,
+  ProjectHeaderComponent,
+  TimeLineCardComponent
   ],
   imports: [
     SharedModule.forRoot()

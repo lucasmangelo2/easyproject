@@ -10,10 +10,10 @@ import { TaskService } from '../../services/task.service';
 export class TaskComponent implements OnInit {
 
   @Input() task : Task;
-
+  
   private count : number = 0;
 
-  constructor(private taskService : TaskService) { }
+  constructor() { }
 
   ngOnInit() {}
 
