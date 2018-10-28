@@ -11,6 +11,9 @@ class TaksRouter extends Router {
     }
 
     applyRoutes(application: restify.Server) {
+
+        //#region Task
+
         application.get('/task', (req, resp, next) =>{
             Task.find()
                 .then(this.render(resp,next))
@@ -24,9 +27,9 @@ class TaksRouter extends Router {
                 .catch(next);
         });
 
-        application.get('/taskbystage/:stage_id', (req, resp, next) => {
+        application.get('/task_by_stage/:stage_id', (req, resp, next) => {
             let id : string = req.params.stage_id;
-            Task.find({stage: {$elemMatch: {_id:id}}})
+            Task.find({"stage._id":id})
                 .then(this.render(resp,next))
                 .catch(next);
         });
@@ -36,7 +39,7 @@ class TaksRouter extends Router {
 
             taks.save()
                 .then(this.render(resp,next))
-                .catch(next);;
+                .catch(next);
         });
 
         application.patch('/task/:id', (req,resp,next) =>{
@@ -61,6 +64,8 @@ class TaksRouter extends Router {
                 })
                 .catch(next);
         });
+
+        //#endregion
     }
 }
 

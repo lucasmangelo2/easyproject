@@ -3,7 +3,7 @@ import * as mongoose from 'mongoose'
 const taskSchema = new mongoose.Schema({
     title:{
         required:true,
-        maxlength:25,
+        maxlength:30,
         type: String
     },
     description:{
@@ -27,32 +27,10 @@ const taskSchema = new mongoose.Schema({
     end_date: {
         type: Date
     },
-    checklist: [{
-        description: {
-            type:String
-        },
-        creation_date:{
-            type:Date,
-            default:new Date()
-        },
-        complete_date:{
-            type:Date
-        },
-        complete:{
-            type: Boolean
-        }
-    }],
     attachment: [{
-        content: {
-            required:true,
-            type:String
-        },
-        creation_date: {
-            default: new Date(),
-            type:Date
-        }
+        type: String
     }],
-    stage:[{
+    stage:{
         _id: {
             required:true,
             type:String
@@ -65,24 +43,10 @@ const taskSchema = new mongoose.Schema({
             default: Date(),
             type: Date
         }
-    }],
-    sprint:[{
-        _id: {
-            required:true,
-            type:String
-        },
-        status:{
-            type:String,
-            default:"A"
-        },
-        allocation_date :{
-            default: Date(),
-            type: Date
-        }
-    }],
+    },
     project: {
         _id: {
-            required:true,
+//            required:true,
             type:String
         },
         status:{

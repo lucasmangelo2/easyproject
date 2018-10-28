@@ -10,6 +10,8 @@ import { sprintRouter } from './routes/sprint.router';
 import { projectRouter } from './routes/project.model';
 import { memberRouter } from './routes/member.router';
 import { companyRouter } from './routes/company.router';
+import { checkListRouter } from './routes/checklist.router';
+import { attachmentRouter } from './routes/attachment.router';
 
 
 const server = new Server();
@@ -22,7 +24,9 @@ const routers : Router[] = [
     sprintRouter,
     projectRouter,
     memberRouter,
-    companyRouter
+    companyRouter,
+    checkListRouter,
+    attachmentRouter
 ]
 
 server.bootstrap(routers)
