@@ -1,20 +1,19 @@
 import { Component, OnInit, TemplateRef, ViewChild, OnDestroy } from '@angular/core';
 import { DragulaService } from 'ng2-dragula';
-import { TaskService } from '../services/task.service';
-import { Stage } from '../models/stage.model';
-import { StageService } from '../services/stage.service';
 import { Subscription } from 'rxjs';
-import { Project } from '../models/project.model';
 import { ActivatedRoute } from '@angular/router';
-import { Task } from '../models/task.model';
+import { Project } from '../../models/project.model';
+import { Stage } from '../../models/stage.model';
+import { StageService } from '../../services/stage.service';
+import { TaskService } from '../../services/task.service';
 
 
 @Component({
-  selector: 'app-task',
-  templateUrl: './task.component.html',
-  styleUrls: ['./task.component.scss']
+  selector: 'app-sprint',
+  templateUrl: './sprint.component.html',
+  styleUrls: ['./sprint.component.scss']
 })
-export class TaskComponent implements OnInit, OnDestroy {
+export class SprintComponent implements OnInit, OnDestroy {
 
   @ViewChild('template') template : TemplateRef<any>;
 

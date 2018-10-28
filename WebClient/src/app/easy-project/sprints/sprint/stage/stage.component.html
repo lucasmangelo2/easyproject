@@ -9,7 +9,7 @@
   </div>
 
   <div class="content" [dragula]="'task'" [(dragulaModel)]="tasks">
-      <app-card *ngFor="let item of tasks"  [task]="item"></app-card>
+      <app-task *ngFor="let item of tasks"  [task]="item"></app-task>
   </div>
 </div>
 

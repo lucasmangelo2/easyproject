@@ -4,11 +4,11 @@ import { SprintService } from '../services/sprint.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-sprint',
-  templateUrl: './sprint.component.html',
-  styleUrls: ['./sprint.component.scss']
+  selector: 'app-sprints',
+  templateUrl: './sprints.component.html',
+  styleUrls: ['./sprints.component.scss']
 })
-export class SprintComponent implements OnInit {
+export class SprintsComponent implements OnInit {
 
   list : Sprint[];
 

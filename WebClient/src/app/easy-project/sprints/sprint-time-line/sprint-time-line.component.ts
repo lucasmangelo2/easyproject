@@ -3,11 +3,11 @@ import { Sprint } from '../../models/sprint.model';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-time-line-card',
-  templateUrl: './time-line-card.component.html',
-  styleUrls: ['./time-line-card.component.scss']
+  selector: 'app-sprint-time-line',
+  templateUrl: './sprint-time-line.component.html',
+  styleUrls: ['./sprint-time-line.component.scss']
 })
-export class TimeLineCardComponent implements OnInit {
+export class SprintTimeLineComponent implements OnInit {
 
   @Input() direction : string;
   @Input() sprint : Sprint;

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Stage } from '../../models/stage.model';
-import { TaskService } from '../../services/task.service';
-import { Task } from '../../models/task.model';
+import { Stage } from 'src/app/easy-project/models/stage.model';
+import { Task } from 'src/app/easy-project/models/task.model';
+import { TaskService } from 'src/app/easy-project/services/task.service';
 
 @Component({
   selector: 'app-stage',

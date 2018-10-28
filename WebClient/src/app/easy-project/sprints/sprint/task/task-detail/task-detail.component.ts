@@ -3,17 +3,16 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Task } from 'src/app/easy-project/models/task.model';
 import { Checklist } from 'src/app/easy-project/models/checklist.model';
 import { NotificationService } from 'src/app/shared/messages/notification.services';
-import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Subscription } from 'rxjs';
 import { TaskService } from 'src/app/easy-project/services/task.service';
 import { CheckListService } from 'src/app/easy-project/services/checklist.servce';
 
 @Component({
-  selector: 'app-card-detail',
-  templateUrl: './card-detail.component.html',
-  styleUrls: ['./card-detail.component.scss']
+  selector: 'app-task-detail',
+  templateUrl: './task-detail.component.html',
+  styleUrls: ['./task-detail.component.scss']
 })
-export class CardDetailComponent implements OnInit , OnDestroy{
+export class TaskDetailComponent implements OnInit , OnDestroy{
 
   private inputCheckList: ElementRef;
 

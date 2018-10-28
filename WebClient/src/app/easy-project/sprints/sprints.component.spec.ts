@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TimeLineCardComponent } from './time-line-card.component';
+import { SprintsComponent } from './sprintscomponent';
 
-describe('TimeLineCardComponent', () => {
-  let component: TimeLineCardComponent;
-  let fixture: ComponentFixture<TimeLineCardComponent>;
+describe('SprintsComponent', () => {
+  let component: SprintsComponent;
+  let fixture: ComponentFixture<SprintsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TimeLineCardComponent ]
+      declarations: [ SprintsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TimeLineCardComponent);
+    fixture = TestBed.createComponent(SprintsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

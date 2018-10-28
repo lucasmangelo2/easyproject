@@ -6,15 +6,15 @@ import { LoginComponent } from "./easy-project/user/login/login.component";
 import { ProfileComponent } from "./easy-project/user/profile/profile.component";
 import { TeamComponent } from "./easy-project/team/team.component";
 import { CompanyComponent } from "./easy-project/company/company.component";
-import { SprintComponent } from "./easy-project/sprint/sprint.component";
-import { TaskComponent } from "./easy-project/task/task.component";
 import { ProjectComponent } from "./easy-project/project/project.component";
+import { SprintComponent } from "./easy-project/sprints/sprint/sprint.component";
+import { SprintsComponent } from "./easy-project/sprints/sprintscomponent";
 
 export const ROUTES: Routes = [
     {path: '', component: HomeComponent},
     {path: 'login', component: LoginComponent},
-    {path: 'task/:id', component: TaskComponent},
-    {path: 'sprint', component: SprintComponent},
+    {path: 'sprint', component: SprintsComponent},
+    {path: 'sprint/:id', component: SprintComponent},
     {path: 'project', component: ProjectComponent},
     {path: 'profile', component: ProfileComponent},
     {path: 'team', component: TeamComponent},

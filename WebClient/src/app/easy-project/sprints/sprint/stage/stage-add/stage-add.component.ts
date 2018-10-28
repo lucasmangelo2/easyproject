@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TaskService } from '../../../services/task.service';
+import { TaskService } from 'src/app/easy-project/services/task.service';
 
 @Component({
   selector: 'app-stage-add',
