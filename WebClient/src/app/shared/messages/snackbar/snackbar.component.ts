@@ -7,7 +7,7 @@ import { NotificationService } from '../notification.services';
 
 
 @Component({
-  selector: 'mt-snackbar',
+  selector: 'app-snackbar',
   templateUrl: './snackbar.component.html',
   styleUrls: ['./snackbar.component.css'],
   animations: [

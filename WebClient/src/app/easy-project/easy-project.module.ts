@@ -1,4 +1,5 @@
 import { NgModule } from "@angular/core";
+
 import { TeamComponent } from './team/team.component';
 import { MemberComponent } from './member/member.component';
 import { HomeComponent } from './home/home.component';
@@ -15,14 +16,16 @@ import { ProfileComponent } from "./user/profile/profile.component";
 import { RegisterComponent } from "./user/register/register.component";
 import { SharedModule } from "../shared/shared.module";
 import { SidebarMenuComponent } from "./sidebar-menu/sidebar-menu.component";
-import { TaskComponent } from "./board/task/task.component";
-import { BoardComponent } from "./board/board.component";
-import { StageComponent } from "./board/stage/stage.component";
-import { StageAddComponent } from "./board/stage/stage-add/stage-add.component";
-import { TaskDetailComponent } from "./board/task/taks-detail/task-detail.component";
+
+import { TaskComponent } from "./task/task.component";
+import { StageComponent } from "./task/stage/stage.component";
+import { StageAddComponent } from "./task/stage/stage-add/stage-add.component";
+import { CardDetailComponent } from "./task/card/card-detail/card-detail.component";
 import { ProjectComponent } from './project/project.component';
 import { ProjectHeaderComponent } from './project/project-header/project-header.component';
 import { TimeLineCardComponent } from "./sprint/time-line-card/time-line-card.component";
+import { CardComponent } from "./task/card/card.component";
+import { SnackbarComponent } from "../shared/messages/snackbar/snackbar.component";
 
 @NgModule({
   declarations: [
@@ -36,20 +39,23 @@ import { TimeLineCardComponent } from "./sprint/time-line-card/time-line-card.co
   DashboardComponent,
   ViewComponent,
   NotFoundComponent,
-  BoardComponent,
   LoginComponent,
   ProfileComponent,
   RegisterComponent,
   StageComponent,
   SidebarMenuComponent,
   StageAddComponent,
-  TaskDetailComponent,
+  CardComponent,
+  CardDetailComponent,
   ProjectComponent,
   ProjectHeaderComponent,
   TimeLineCardComponent
   ],
   imports: [
     SharedModule.forRoot()
+  ],
+  exports:[
+    SnackbarComponent
   ],
   providers: [
     UserService

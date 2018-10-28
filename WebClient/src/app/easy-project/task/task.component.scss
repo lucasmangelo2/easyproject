@@ -1,0 +1,22 @@
+
+
+.board{
+    padding: 0 9px;
+    display: flex;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 100%;
+    background: tomato;
+
+    span{
+        display: flex;
+    }
+}
+
+
+

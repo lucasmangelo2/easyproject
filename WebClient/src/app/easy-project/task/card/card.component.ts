@@ -3,18 +3,22 @@ import { Task } from '../../models/task.model';
 import { TaskService } from '../../services/task.service';
 
 @Component({
-  selector: 'app-task',
-  templateUrl: './task.component.html',
-  styleUrls: ['./task.component.scss']
+  selector: 'app-card',
+  templateUrl: './card.component.html',
+  styleUrls: ['./card.component.scss']
 })
-export class TaskComponent implements OnInit {
+export class CardComponent implements OnInit {
 
   @Input() task : Task;
   
   private count : number = 0;
 
-  constructor() { }
+  constructor(private taskService: TaskService) { }
 
   ngOnInit() {}
+
+  onEditTask(event){
+    this.taskService.onEditTask(this.task);
+  }
 
 }

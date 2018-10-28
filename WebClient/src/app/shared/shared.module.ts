@@ -4,6 +4,7 @@ import { HttpModule } from "@angular/http";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { CommonModule } from "@angular/common";
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { DatepickerModule } from 'ngx-bootstrap/datepicker';
 
 import { InputComponent } from "./input/input.component";
 import { SnackbarComponent } from './messages/snackbar/snackbar.component';
@@ -16,6 +17,7 @@ import { CheckboxComponent } from "./checkbox/checkbox.component";
 import { StageService } from "../easy-project/services/stage.service";
 import { NotificationService } from "./messages/notification.services";
 import { SprintService } from "../easy-project/services/sprint.service";
+import { CheckListService } from "../easy-project/services/checklist.servce";
 
 
 
@@ -34,7 +36,8 @@ import { SprintService } from "../easy-project/services/sprint.service";
         BrowserAnimationsModule,
         RouterModule,
         DragulaModule.forRoot(),
-        ModalModule.forRoot()
+        ModalModule.forRoot(),
+        DatepickerModule.forRoot()
     ],
     exports: [
         CommonModule,
@@ -42,12 +45,13 @@ import { SprintService } from "../easy-project/services/sprint.service";
         HttpClientModule,
         InputComponent,
         SnackbarComponent,
-        // é possível exportar qualquer módulo que pode ser utilizado por outro módulo, assim o módulo principal não precisa declarar novarmente
         FormsModule, 
         ReactiveFormsModule,
         DragulaModule,
         RouterModule,
-        ModalModule
+        ModalModule,
+        DatepickerModule,
+        CheckboxComponent
     ],
 })
 
@@ -62,6 +66,7 @@ export class SharedModule{
                 TaskService,
                 StageService,
                 SprintService,
+                CheckListService,
                 NotificationService
                 /*{provide: HTTP_INTERCEPTORS, //useClass: AuthInterceptor,
                      multi: true}*/

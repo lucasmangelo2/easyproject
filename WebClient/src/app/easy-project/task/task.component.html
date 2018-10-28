@@ -1,0 +1,14 @@
+<app-sidebar-menu></app-sidebar-menu>
+
+<app-project-header></app-project-header>
+
+<div class="board">
+    <span dragula="stage" [(dragulaModel)]="stages">
+        <app-stage *ngFor="let item of stages" [stage]="item"></app-stage>
+    </span>
+    <app-stage-add></app-stage-add>
+</div>
+
+<ng-template #template>
+    <app-card-detail></app-card-detail>
+</ng-template>

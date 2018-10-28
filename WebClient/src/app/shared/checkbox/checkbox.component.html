@@ -1,3 +1,9 @@
-<p>
-  checkbox works!
-</p>
+<div class="checkbox-row">
+  <label class="content">{{description}}
+    <input type="checkbox">
+    <span class="checkmark"></span>
+  </label>
+  <span *ngIf="showTrashButton" class="trash" (click)="onClickDelete($event)">
+      <i class="fa fa-trash"></i>
+  </span>
+</div>
