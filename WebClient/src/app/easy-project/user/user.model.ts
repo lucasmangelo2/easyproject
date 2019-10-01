@@ -1,22 +1,12 @@
 
-export class SystemUser{
-    constructor(){}
-    Id?:number;
-    FirstName?:string;
-    LastName?:string;
-    SystemUserName?:string;
-    SystemUserStatus?:number;
-    Nickname?:string;
-    //FileBase64Id?:number;
-    CategoryId?:number;
-    Password?:string;
-    BirthDay?:Date;
-}
-
-export class userDTO{
-    constructor(){}
-    FirstName?:string;
-    LastName?:string;
-    Nickname?:string;
-    Password?:string;
+export class User {
+    constructor() {}
+    id?: number;
+    name?: string;
+    lastName?: string;
+    username?: string;
+    // FileBase64Id?:number;
+    categoryId?: number;
+    password?: string;
+    birthDay?: Date;
 }

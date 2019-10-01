@@ -13,6 +13,10 @@
 
 export const environment = {
   production: false,
-  api_url: "http://localhost:3005"
+  api_url: 'http://localhost:3005',
+  user: {
+      auth: 'user/auth',
+      new: 'user/new'
+  }
 };
 

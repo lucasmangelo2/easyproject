@@ -1,4 +1,5 @@
 import {Router} from '../common/router';
+import * as bcrypt from 'bcrypt';
 import * as restify from 'restify';
 import { User } from '../models/user.model';
 
@@ -38,6 +39,18 @@ class UsersRouter extends Router {
             user.save()
                 .then(this.render(resp,next))
                 .catch(next);;
+        });
+
+        application.post('/users/auth',(req, resp,next) => {
+            let user = new User(req.body);
+
+            User.findOne({username: user.username} ,(err, res)  => {
+                bcrypt.compare(user.password, res.password, (err_aux, res_aux){
+                    if (res_aux){
+                        this.render(resp,next);
+                    }
+                });
+            })
         });
 
         application.patch('/users/:id', (req,resp,next) =>{

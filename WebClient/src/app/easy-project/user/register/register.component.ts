@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { validateConfig } from '@angular/router/src/config';
-import { SystemUser, userDTO } from '../user.model';
+import { User } from '../user.model';
 import { UserService } from '../../services/user.service';
 @Component({
   selector: 'app-register',
@@ -14,8 +14,8 @@ export class RegisterComponent implements OnInit {
   emailPattern = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
   registerForm: FormGroup;
-  isShowing:boolean =false;
-  isConfirmShowing:boolean = false;
+  isShowing = false;
+  isConfirmShowing = false;
 
   constructor(private formBuilder: FormBuilder,
               private service: UserService) { }
@@ -26,8 +26,8 @@ export class RegisterComponent implements OnInit {
       username: this.formBuilder.control('', [Validators.required, Validators.maxLength(100)]),
       name:  this.formBuilder.control('', [Validators.required, Validators.maxLength(100)]),
       lastname: this.formBuilder.control('', [Validators.required, Validators.maxLength(100)]),
-      password: this.formBuilder.control('',[Validators.required, Validators.maxLength(50), Validators.minLength(6)]),
-      confirm_password: this.formBuilder.control('',[Validators.required, Validators.maxLength(50),this.passwordConfirming]),
+      password: this.formBuilder.control('', [Validators.required, Validators.maxLength(50), Validators.minLength(6)]),
+      confirm_password: this.formBuilder.control('', [Validators.required, Validators.maxLength(50), this.passwordConfirming]),
     });
   }
 
@@ -37,39 +37,39 @@ export class RegisterComponent implements OnInit {
   get password(): any { return this.registerForm.get('password'); }
   get confirm_password(): any { return this.registerForm.get('confirm_password'); }
   get lastname(): any { return this.registerForm.get('lastname'); }
-  
+
 
   passwordConfirming(c: AbstractControl): any {
-    if(!c.parent || !c) return;
+    if (!c.parent || !c) { return; }
     const pwd = c.parent.get('password');
-    const cpwd= c.parent.get('confirm_password');
+    const cpwd = c.parent.get('confirm_password');
 
-    if(!pwd || !cpwd) return ;
+    if (!pwd || !cpwd) { return ; }
     if (pwd.value !== cpwd.value) {
         return { invalid: true };
     }
   }
 
-  showClick(){
+  showClick() {
     this.isShowing = !this.isShowing;
   }
 
-  showConfirmClick(){
+  showConfirmClick() {
     this.isConfirmShowing = !this.isConfirmShowing;
   }
 
-  getUser():userDTO{
+  getUser(): User {
     return {
-      FirstName: this.name.value,
-      LastName: this.lastname.value,
-      Nickname: this.username.value,
-      Password: this.password.value
-    }
+      name: this.name.value,
+      lastName: this.lastname.value,
+      username: this.username.value,
+      password: this.password.value
+    };
   }
 
-  onRegisterClick(){
-    let user = this.getUser();
+  onRegisterClick() {
+    const user = this.getUser();
     this.service.register(user);
   }
-  
+
 }

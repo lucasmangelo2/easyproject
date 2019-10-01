@@ -6,6 +6,7 @@ import { enviroment } from '../common/enviroment';
 export interface User extends mongoose.Document {
     name: string,
     email: string,
+    username: string,
     password: string
 }
 
@@ -13,13 +14,24 @@ const userSchema = new mongoose.Schema({
     name:{
         type: String,
         required: true,
-        maxlength: 80,
+        maxlength: 100,
         minlength: 3
+    },
+    lastName:{
+        type: String,
+        required: false,
+        maxlength: 100,
+    },
+    username:{
+        type: String,
+        unique: true,
+        required: false,
+        maxlength: 100,
     },
     email:{
         type: String,
-        unique: true,
-        required: true,
+        //unique: true,
+        required: false,
         match: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     },
     password: {

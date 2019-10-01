@@ -1,58 +1,51 @@
-import { Injectable, EventEmitter } from "@angular/core";
-import { SystemUser, userDTO } from "../user/user.model";
-import { ReplaySubject } from "rxjs";
-import { HttpClient, HttpHeaders} from '@angular/common/http'
-import { Router } from "@angular/router";
-import { NotificationService } from "../../shared/messages/notification.services";
+import { Injectable, EventEmitter } from '@angular/core';
+import { User } from '../user/user.model';
+import { ReplaySubject } from 'rxjs';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { Router } from '@angular/router';
+import { NotificationService } from '../../shared/messages/notification.services';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class UserService {
 
   AUTH_COOKIE: string;
-  currentUser: SystemUser = null;
-  config:any;
+  currentUser: User = null;
 
   userLogged: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  private search: ReplaySubject<string> = new ReplaySubject<string>();
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private notification: NotificationService) {}
 
-  constructor(private http: HttpClient,
-              private router: Router,
-              private notification: NotificationService) {
-
-        this.http.get('/assets/data.json')
-        .subscribe(data => {
-            this.config = data;
-        });
-    }
-
-  private objectToURLParams(object:any, params: URLSearchParams): URLSearchParams{
-    for(let key in object)
+  private objectToURLParams(object: any, params: URLSearchParams): URLSearchParams {
+    for (const key in object) {
       params.append(key, object[key]);
+    }
 
     return params;
   }
 
-  private getHeader(): HttpHeaders{
-    let header = new HttpHeaders();
+  private getHeader(): HttpHeaders {
+    const header = new HttpHeaders();
     header.append('Content-type', 'application/json');
     return header;
   }
 
-  login(user:SystemUser){
+  login(user: User) {
     let params = new URLSearchParams();
-    params = this.objectToURLParams(user,params);
+    params = this.objectToURLParams(user, params);
 
     this.http
-        .post( this.config.server + this.config.endpoint.user.auth, user, { headers: this.getHeader() })
+        .post(`${environment.api_url}/users/auth`, user, { headers: this.getHeader() })
         .subscribe(
           data => {
-            if(!!data){
+            if (!!data) {
               this.currentUser = data;
-                localStorage.setItem(this.AUTH_COOKIE, 'Usuario Loagado');
+                localStorage.setItem(this.AUTH_COOKIE, 'Usuario Logado');
                 this.router.navigate(['']);
             }
-
           },
           error => {
             this.notifyResponseError(error);
@@ -60,12 +53,12 @@ export class UserService {
         );
   }
 
-  register(user:userDTO){
+  register(user: User) {
     let params = new URLSearchParams();
-    params = this.objectToURLParams(user,params);
+    params = this.objectToURLParams(user, params);
 
     this.http
-        .post(this.config.server + this.config.endpoint.user.new, user,{ headers: this.getHeader()} )
+        .post(`${environment.api_url}/users`, user, { headers: this.getHeader()} )
         .subscribe(
           data => {
             this.login(user);
@@ -76,16 +69,17 @@ export class UserService {
         );
   }
 
-  private notifyResponseError(error:any){
-    let message: string = "";
-    if(error.status == 0)
-      message = "Erro ao conectar com o servidor";
-    else{
-      var object = error.json();
-      if(!!error.json().Message)
+  private notifyResponseError(error: any) {
+    let message = '';
+    if (error.status === 0) {
+      message = 'Erro ao conectar com o servidor';
+    } else {
+      const object = error.json();
+      if (!!error.json().Message) {
         message = error.json().Message;
+      }
     }
-    
+
     this.notification.notify(message);
   }
 }
